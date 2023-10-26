@@ -30,6 +30,7 @@ namespace PTUDW_04.Controllers
                 return NotFound();
             }
             var blog = _context.TbBlogs.Where(i => i.BlogId == id && (bool)i.IsActive).FirstOrDefault();
+            ViewBag.blogComment = _context.TbBlogComments.Where(i=>i.BlogId == id && (bool)i.IsActive).ToList();
             if (blog == null)
             {
                 return NotFound();
